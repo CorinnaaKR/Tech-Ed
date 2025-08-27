@@ -1,0 +1,16 @@
+#FullName {
+  border-style: dashed;
+}
+
+#UserName {
+  border-style: dotted;
+}
+
+#email {
+  border-style: inset;
+}
+
+#password:focus {
+  background: lightskyblue;
+  color: purple;
+}

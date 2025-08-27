@@ -1,0 +1,29 @@
+.intro-text {
+  max-width: 10px;
+  margin-inline: block;
+}
+
+.container {
+  background: slateblue;
+}
+
+.box1 {
+  border: 2px solid darkmagenta;
+  min-height: 20px;
+  max-height: 20px;
+  max-width: 20px;
+}
+
+.box2 {
+  border: 2px solid darkorchid;
+  min-height: 20px;
+  max-height: 20px;
+  max-width: 20px;
+}
+
+.box3 {
+  border: 2px solid purple;
+  min-height: 20px;
+  max-height: 20px;
+  max-width: 20px;
+}

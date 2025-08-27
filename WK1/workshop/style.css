@@ -1,0 +1,55 @@
+header {
+  background-color: blueviolet;
+  font-family: Arial;
+  font-size: 25px;
+}
+
+a {
+  color: rgb(66, 189, 220);
+}
+
+section {
+  background-color: lightsalmon;
+}
+
+h1 {
+  background-color: rgb(135, 128, 240);
+  font-family: Georgia;
+  font-size: 25px;
+}
+
+p {
+  background-color: slategray;
+  font-family: Verdana;
+  font-size: 15px;
+}
+
+button {
+  background-color: lightcoral;
+  font-family: Helvetica;
+  font-size: 20px;
+}
+
+button:hover {
+  background-color: maroon;
+}
+
+.header-button {
+  background-color: maroon;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.header-button:hover {
+  background-color: rgb(237, 100, 100);
+}
+
+#navlink1 {
+  background-color: lightgreen;
+  font-family: Arial;
+  font-size: 20px;
+}
+
+.div class {
+  background-color: tomato;
+}

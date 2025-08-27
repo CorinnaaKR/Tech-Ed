@@ -1,0 +1,22 @@
+.container {
+  background-color: blue;
+}
+div :first-child {
+  background-color: lightblue;
+}
+div :last-child {
+  background-color: lightgreen;
+}
+a:hover {
+  color: red;
+}
+
+#firstlink {
+  background-color: orange;
+}
+#secondlink {
+  background-color: pink;
+}
+#thirdlink {
+  background-color: purple;
+}
