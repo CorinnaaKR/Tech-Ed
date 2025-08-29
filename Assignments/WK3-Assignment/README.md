@@ -45,3 +45,5 @@ What went really well and what could have gone better?
 THOUGHTS THROUGHOUT
 Followed through the demo, and created a template structure to follow and wrote out the pseudo code.
 Had a look through pixabay and found a cartoon cookie image that I like and added to my html file.
+Changed the image to a hungry octopus as I thought it more fun.
+Created a folder to put my image in and linked the file path to make the image more easily accessible.

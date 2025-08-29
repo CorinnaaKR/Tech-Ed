@@ -1,7 +1,12 @@
 console.log("hello world");
 
 //Game Logic
-//When the user clcikers on the cookie, total count of cookies goes up by 1 (event listener - click)
+//When the user clicks on the cookie, total count of cookies goes up by 1 (event listener - click)
+
+const clickerButton = document.getElementById("cookieClicker");
+
+function handleClick() {}
+
 //When the user clicker on the buy button in an upgrade button in a upgrade shop, the total count of cookies goes down by the cost of the upgrade, and the CPS value goes up
 
 //you will need the functions to contain the game logic
