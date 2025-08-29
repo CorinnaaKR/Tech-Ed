@@ -49,3 +49,6 @@ Changed the image to a hungry octopus as I thought it more fun.
 Created a folder to put my image in and linked the file path to make the image more easily accessible.
 Have created sections and divs to divide my webiste into the sections i want and given them ids and classes to help with styling later.
 Found a youtube tutorial to help me put the steps together the steps, as I understand which concepts I need to use but I am getting overwhelmed with how they work together.
+Rubber ducked with Manny to understand the logic of the event handler, kept getting caught up and confused with the syntax. Managed to get there, now moving on to creating the elements for shop upgrades.
+Went back through the class demos on DOM manipulation to figure out the code for making the new elements required for the elements.
+Got stuck with the syntax, Manny pointed me towards the class demos for pulling the data from APIs. My code isnt showing any errors but the upgrades arent showing in my browser.
