@@ -47,3 +47,5 @@ Followed through the demo, and created a template structure to follow and wrote 
 Had a look through pixabay and found a cartoon cookie image that I like and added to my html file.
 Changed the image to a hungry octopus as I thought it more fun.
 Created a folder to put my image in and linked the file path to make the image more easily accessible.
+Have created sections and divs to divide my webiste into the sections i want and given them ids and classes to help with styling later.
+Found a youtube tutorial to help me put the steps together the steps, as I understand which concepts I need to use but I am getting overwhelmed with how they work together.

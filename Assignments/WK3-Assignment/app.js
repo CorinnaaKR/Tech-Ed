@@ -5,7 +5,12 @@ console.log("hello world");
 
 const clickerButton = document.getElementById("cookieClicker");
 
-function handleClick() {}
+function handleClick() {
+  let cookierCount = 0;
+  let CPS = 0;
+}
+
+///data storage
 
 //When the user clicker on the buy button in an upgrade button in a upgrade shop, the total count of cookies goes down by the cost of the upgrade, and the CPS value goes up
 
@@ -16,10 +21,6 @@ function handleClick() {}
 
 //LOCAL STORAGE TIP
 //Make sure the local storage values are updated after the user buys an upgrade or when the user clicks on the cookie (event listener to update local storage or maybe set interval to dave progress)
-
-//data storage
-let cookierCount = 0;
-let CPS = 0;
 
 // let stats = {
 //     cookieCount: 0,
