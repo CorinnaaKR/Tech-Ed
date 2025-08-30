@@ -55,12 +55,18 @@ async function createUpgrades() {
     const upgradesButton = document.createElement("button");
     upgradesButton.textContent = upgrades[i].name;
     console.log(upgradesButton);
+
     shopContainer.appendChild(upgradesButton);
+
     upgradesButton.addEventListener("click", function () {
       purchaseUpgrades(i);
+      if (cookieAmount >= upgrades[upgradeNumber].cost) {
+        cookieAmount -= upgrades[upgradeNumber].cost;
+        cookieAmount += upgrades [upgradesNumber].increase;
+      } else{alert ("More cookies needed!")
+        }
     });
-  }
-}
+  };
 
 createUpgrades();
 
