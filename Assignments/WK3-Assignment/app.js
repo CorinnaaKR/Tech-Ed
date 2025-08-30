@@ -1,5 +1,84 @@
 console.log("hello world");
 
+//CREATING EVENT LISTENER FOR CLICKs
+
+const cookieClicker = document.getElementById("cookieClicker");
+let timesClicks = 0;
+
+function handleClick() {
+  timesClicks = +1;
+  clickerData.cookieAmount = clickerData.cookieAmount + 1;
+  console.log(clickerData.clickerData);
+}
+
+cookieClicker.addEventListener("click", handleClick);
+
+const clickerData = {
+  cookieAmount: 0,
+  cps: 1,
+};
+
+//INTERVAL & LOCAL STORAGE
+setInterval(function () {
+  clickerData.cookieAmount += clickerData.cps;
+  console.log(clickerData.cookieAmount);
+  const cookieAmountText = document.getElementById("cookieAmount");
+  const cpsText = document.getElementById("cps");
+  cookieAmountText.textContent = `Cookies Amount: ${clickerData.cookieAmount}`;
+  cpsText.textContent = `CPS: ${clickerData.cps}`;
+
+  const stringifiedClickerData = JSON.stringify(clickerData);
+  localStorage.setItem("clickerData", stringifiedClickerData);
+}, 1000);
+
+//CALLING API
+
+async function cookieUpgrades() {
+  const response = await fetch(
+    "https://cookie-upgrade-api.vercel.app/api/upgrades"
+  );
+  console.log(response);
+
+  const data = await response.json();
+  console.log(data);
+
+  return data;
+}
+cookieUpgrades();
+
+//CREATING UPGRADES BUTTONS
+
+const shopContainer = document.getElementById("shop-container");
+async function createUpgrades() {
+  const upgrades = await cookieUpgrades();
+  for (let i = 0; i < upgrades.length; i++) {
+    const upgradesButton = document.createElement("button");
+    upgradesButton.textContent = upgrades[i].name;
+    console.log(upgradesButton);
+    shopContainer.appendChild(upgradesButton);
+    upgradesButton.addEventListener("click", function () {
+      purchaseUpgrades(i);
+    });
+  }
+}
+
+createUpgrades();
+
+//RETRIEVING & CALLING DATA
+
+function purchaseUpdgrades(i) {
+  upgrades = null;
+}
+
+function loadedData() {
+  const retrievedData = localStorage.getItem("clickerData");
+  const loadedData = JSON.parse(retrievedData);
+  clickerData.cookieAmount = loadedData.cookieAmount;
+  clickerData.cps = loadedData.cps;
+}
+
+loadedData();
+
 //Game Logic
 //When the user clicks on the cookie, total count of cookies goes up by 1 (event listener - click)
 // let stats = {
@@ -18,110 +97,9 @@ console.log("hello world");
 //you will need the functions to contain the game logic
 //to creat the logic for the shop upgrades:
 //OPTION 1 = yuou could have a function per upgrade
-//OPTION 2 = you could have a resusable function that works for ALL the upgrades
+//OPTION 2 = you could have a resusable function that works for ALL the upgrades//Create new element to hold API info, and appending to DOM
 
-//Creating a event listener for the button
-
-const cookieClicker = document.getElementById("cookieClicker");
-let timesClicks = 0;
-
-function handleClick() {
-  timesClicks = +1;
-  clickerData.cookieAmount = clickerData.cookieAmount + 1;
-  console.log(clickerData.clickerData);
-}
-
-cookieClicker.addEventListener("click", handleClick);
-
-//create Interval that adds CPS to cookie counter
-//LOCAL STORAGE
-
-const clickerData = {
-  cookieAmount: 0,
-  cps: 1,
-};
-
-//INTERVAL
-setInterval(function () {
-  clickerData.cookieAmount += clickerData.cps;
-  console.log(clickerData.cookieAmount);
-  const cookieAmountText = document.getElementById("cookieAmount");
-  const cpsText = document.getElementById("cps");
-  cookieAmountText.textContent = `Cookies Amount: ${clickerData.cookieAmount}`;
-  cpsText.textContent = `CPS: ${clickerData.cps}`;
-
-  const stringifiedClickerData = JSON.stringify(clickerData);
-  localStorage.setItem("clickerData", stringifiedClickerData);
-}, 1000);
-
-// here, update DOM to reflect the change in values
-// save the values in the local storage
-//Calling API
-
-async function cookieUpgrades() {
-  const response = await fetch(
-    "https://cookie-upgrade-api.vercel.app/api/upgrades"
-  );
-  console.log(response);
-
-  const data = await response.json();
-  console.log(data);
-
-  return data;
-}
-cookieUpgrades();
-
-//creating upgrades button
-const shopContainer = document.getElementById("shop-container");
-async function createUpgrades() {
-  const upgrades = await cookieUpgrades();
-  for (let i = 0; i < upgrades.length; i++) {
-    const upgradesButton = document.createElement("button");
-    upgradesButton.textContent = upgrades[i].name;
-    console.log(upgradesButton);
-    shopContainer.appendChild(upgradesButton);
-    upgradesButton.addEventListener("click", function () {
-      purchaseUpgrades(i);
-    });
-  }
-}
-
-createUpgrades();
-
-function purchaseUpdgrades(i) {
-  upgrades = null;
-}
-
-function loadedData() {
-  const retrievedData = localStorage.getItem("clickerData");
-  const loadedData = JSON.parse(retrievedData);
-  clickerData.cookieAmount = loadedData.cookieAmount;
-  clickerData.cps = loadedData.cps;
-}
-
-loadedData();
-
-//Create new element to hold API info, and appending to DOM
-
-// function createNewPtag(APIurl) {
-//   const shopContainer = document.querySelector("shop-container");
-
-//   const newpTag = document.createElement("p");
-
-//   newpTag.textContent = APIurl;
-
-//   shopContainer.appendChild(newpTag);
-// }
-
-// async function addUpgradestoP() {
-//   const UpgradesAPI = await cookieUpgrades();
-
-//   getUpgrades(UpgradesAPI);
-// }
-
-// addUpgradestoP();
-
-//creat for loop for array of API data
+//creat3 for loop for array of API data
 
 //LOCAL STORAGE TIP
 //Make sure the local storage values are updated after the user buys an upgrade or when the user clicks on the cookie (event listener to update local storage or maybe set interval to dave progress)
