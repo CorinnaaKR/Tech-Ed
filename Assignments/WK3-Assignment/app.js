@@ -22,24 +22,40 @@ console.log("hello world");
 
 //Creating a event listener for the button
 
-let cookieCounter = 0;
-let CPS = 0;
-
 const cookieClicker = document.getElementById("cookieClicker");
+let timesClicks = 0;
 
 function handleClick() {
-  cookieCounter = cookieCounter + 1;
-  console.log(cookieCounter);
+  timesClicks = +1;
+  clickerData.cookieAmount = clickerData.cookieAmount + 1;
+  console.log(clickerData.clickerData);
 }
 
 cookieClicker.addEventListener("click", handleClick);
 
-
 //create Interval that adds CPS to cookie counter
+//LOCAL STORAGE
 
+const clickerData = {
+  cookieAmount: 0,
+  cps: 1,
+};
 
+//INTERVAL
+setInterval(function () {
+  clickerData.cookieAmount += clickerData.cps;
+  console.log(clickerData.cookieAmount);
+  const cookieAmountText = document.getElementById("cookieAmount");
+  const cpsText = document.getElementById("cps");
+  cookieAmountText.textContent = `Cookies Amount: ${clickerData.cookieAmount}`;
+  cpsText.textContent = `CPS: ${clickerData.cps}`;
 
+  const stringifiedClickerData = JSON.stringify(clickerData);
+  localStorage.setItem("clickerData", stringifiedClickerData);
+}, 1000);
 
+// here, update DOM to reflect the change in values
+// save the values in the local storage
 //Calling API
 
 async function cookieUpgrades() {
@@ -65,7 +81,7 @@ async function createUpgrades() {
     console.log(upgradesButton);
     shopContainer.appendChild(upgradesButton);
     upgradesButton.addEventListener("click", function () {
-    purchaseUpdgrades(i)
+      purchaseUpgrades(i);
     });
   }
 }
@@ -73,10 +89,17 @@ async function createUpgrades() {
 createUpgrades();
 
 function purchaseUpdgrades(i) {
-upgrades = 
+  upgrades = null;
 }
 
-createThumbnails();
+function loadedData() {
+  const retrievedData = localStorage.getItem("clickerData");
+  const loadedData = JSON.parse(retrievedData);
+  clickerData.cookieAmount = loadedData.cookieAmount;
+  clickerData.cps = loadedData.cps;
+}
+
+loadedData();
 
 //Create new element to hold API info, and appending to DOM
 
@@ -104,14 +127,6 @@ createThumbnails();
 //Make sure the local storage values are updated after the user buys an upgrade or when the user clicks on the cookie (event listener to update local storage or maybe set interval to dave progress)
 
 //if there is data in the local storage, update this with data so the user picks it up where they left off
-
-//INTERVAL
-
-// setInterval(function () {
-//   cookieCount += cps;
-//here, update DOM to reflect the change in values
-//save the values in the local storage
-// }, 1000);
 
 //creat a DOM element to contain the upgrades in the shop
 //create an element

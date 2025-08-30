@@ -4,17 +4,17 @@ User Stories
 
 🐿️ As a developer, I want to retrieve upgrade information from an API so that all the developers working on the game can access a single, consistent source of up-to-date information.
 
-🐿️As a user, I want to be able to purchase upgrades from the shop so that I can enhance my gameplay experience.
+🐿️As a user, I want to be able to purchase upgrades from the shop so that I can enhance my gameplay experience. - _DONE_
 
 🐿️ As a developer, I want to use functions effectively to keep my code organised and reusable.
 
 🐿️ As a user, I’d like the website to respond dynamically so that my interactions with the website are responsive and smooth.
 
-🐿️ As a user, I want my cookie count and relevant game information to be stored in local storage so that my progress is saved and I can continue playing from where I left off later.
+🐿️ As a user, I want my cookie count and relevant game information to be stored in local storage so that my progress is saved and I can continue playing from where I left off later. -_DONE_
 
-🐿️ As a user, I want the cookie count to increment automatically and the game state to update each second so that the game progresses even when I’m not actively clicking.
+🐿️ As a user, I want the cookie count to increment automatically and the game state to update each second so that the game progresses even when I’m not actively clicking. - _DONE_
 
-🐿️ As a user, I want the game state to be managed every second using setInterval to ensure my progress is saved and the game remains updated.
+🐿️ As a user, I want the game state to be managed every second using setInterval to ensure my progress is saved and the game remains updated. - _DONE_
 
 Requirements
 
@@ -54,3 +54,5 @@ Went back through the class demos on DOM manipulation to figure out the code for
 Got stuck with the syntax, Manny pointed me towards the class demos for pulling the data from APIs. My code isnt showing any errors but the upgrades arent showing in my browser.
 Asked chapgpt to, without giving me any code or telling me the answer, why the upgrade information from the API wasn't appearing in my browser. The response indicated a spelling error, and confirmed my own thought that I needed a return value to make the API information reusable.
 Jumped on discord with Flavia, Will and Sam, they helped me work out why my buttons weren't appearing on the browser - we managed to get the buttons appearing but had to brainstorm and consult chatGPT on why it wouldnt append the child getUpgrades - we eventually worked out it was because the div 'shop container' that we were trying to append to I had labelled as a class not an Id.
+Reviewed the demo workshops for intervals and local storage, then rubberducked to my classmates about the steps I wanted to happen, which variables I think I needed to call for the functions, and worked out, with some prompting, how i need to write those functions and call them.
+I then discussed the strech goal i wanted to achieve and spitballed how that would work. Before looking at achieving this, I went back to the user stories to check what needed to be achieved and marked the ones I had achieved with _DONE_. As there are still two user stories I haven't done, I'm going to review my previous assignment for the responsive web design elements that I want to incude.
