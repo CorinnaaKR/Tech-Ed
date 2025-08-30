@@ -20,9 +20,11 @@ console.log("hello world");
 //OPTION 1 = yuou could have a function per upgrade
 //OPTION 2 = you could have a resusable function that works for ALL the upgrades
 
+//Creating a event listener for the button
+
 let cookieCounter = 0;
 let CPS = 0;
-//Creating a event listener for the button
+
 const cookieClicker = document.getElementById("cookieClicker");
 
 function handleClick() {
@@ -32,15 +34,84 @@ function handleClick() {
 
 cookieClicker.addEventListener("click", handleClick);
 
-async function cookieUgrades() {
+
+//create Interval that adds CPS to cookie counter
+
+
+
+
+//Calling API
+
+async function cookieUpgrades() {
   const response = await fetch(
     "https://cookie-upgrade-api.vercel.app/api/upgrades"
   );
   console.log(response);
+
   const data = await response.json();
   console.log(data);
+
+  return data;
 }
 cookieUpgrades();
+
+//creating upgrades button
+const shopContainer = document.getElementById("shop-container");
+async function createUpgrades() {
+  const upgrades = await cookieUpgrades();
+  for (let i = 0; i < upgrades.length; i++) {
+    const upgradesButton = document.createElement("button");
+    upgradesButton.textContent = upgrades[i].name;
+    console.log(upgradesButton);
+    shopContainer.appendChild(upgradesButton);
+    upgradesButton.addEventListener("click", function () {
+    purchaseUpdgrades(i)
+    });
+  }
+}
+
+createUpgrades();
+
+function purchaseUpdgrades(i) {
+upgrades = 
+}
+
+createThumbnails();
+
+//Create new element to hold API info, and appending to DOM
+
+// function createNewPtag(APIurl) {
+//   const shopContainer = document.querySelector("shop-container");
+
+//   const newpTag = document.createElement("p");
+
+//   newpTag.textContent = APIurl;
+
+//   shopContainer.appendChild(newpTag);
+// }
+
+// async function addUpgradestoP() {
+//   const UpgradesAPI = await cookieUpgrades();
+
+//   getUpgrades(UpgradesAPI);
+// }
+
+// addUpgradestoP();
+
+//creat for loop for array of API data
+
+//LOCAL STORAGE TIP
+//Make sure the local storage values are updated after the user buys an upgrade or when the user clicks on the cookie (event listener to update local storage or maybe set interval to dave progress)
+
+//if there is data in the local storage, update this with data so the user picks it up where they left off
+
+//INTERVAL
+
+// setInterval(function () {
+//   cookieCount += cps;
+//here, update DOM to reflect the change in values
+//save the values in the local storage
+// }, 1000);
 
 //creat a DOM element to contain the upgrades in the shop
 //create an element
@@ -60,30 +131,3 @@ cookieUpgrades();
 //   console.log(wrangledData);
 //   return wrangledData;
 // }
-
-function createNewPtag(APIurl) {
-  const shopContainer = document.querySelector("shop-container");
-  const newpTag = document.createElement("p");
-  newpTag.textContent = APIurl;
-  shopContainer.appendChild(newpTag);
-}
-
-async function addUpgradestoP() {
-  const UpgradesAPI = await cookieUpgrades();
-  getUpgrades(UpgradesAPI);
-}
-
-addUpgradestoP();
-
-//LOCAL STORAGE TIP
-//Make sure the local storage values are updated after the user buys an upgrade or when the user clicks on the cookie (event listener to update local storage or maybe set interval to dave progress)
-
-//if there is data in the local storage, update this with data so the user picks it up where they left off
-
-//INTERVAL
-
-// setInterval(function () {
-//   cookieCount += cps;
-//here, update DOM to reflect the change in values
-//save the values in the local storage
-// }, 1000);
