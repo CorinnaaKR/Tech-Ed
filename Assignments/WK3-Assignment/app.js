@@ -7,21 +7,22 @@ let timesClicks = 0;
 
 function handleClick() {
   timesClicks += 1;
-  clickerData.cookieAmount = clickerData.cookieAmount + 1;
+  clickerData.cookieAmount += 1;
   console.log(clickerData.cookieAmount);
 }
-
-cookieClicker.addEventListener("click", handleClick);
 
 const clickerData = {
   cookieAmount: 0,
   cps: 1,
 };
 
+cookieClicker.addEventListener("click", handleClick);
+
 //INTERVAL & LOCAL STORAGE
 setInterval(function () {
   clickerData.cookieAmount += clickerData.cps;
   console.log(clickerData.cookieAmount);
+
   const cookieAmountText = document.getElementById("cookieAmount");
   const cpsText = document.getElementById("cps");
   cookieAmountText.textContent = `Cookies Amount: ${clickerData.cookieAmount}`;
@@ -37,6 +38,7 @@ async function cookieUpgrades() {
   const response = await fetch(
     "https://cookie-upgrade-api.vercel.app/api/upgrades"
   );
+
   console.log(response);
 
   const data = await response.json();
@@ -54,9 +56,11 @@ function purchaseUpdgrades(i) {
 
 function loadedData() {
   const retrievedData = localStorage.getItem("clickerData");
-  const loadedData = JSON.parse(retrievedData);
-  clickerData.cookieAmount = loadedData.cookieAmount;
-  clickerData.cps = loadedData.cps;
+  if (retrievedData) {
+    const loadedData = JSON.parse(retrievedData);
+    clickerData.cookieAmount = loadedData.cookieAmount;
+    clickerData.cps = loadedData.cps;
+  }
 }
 
 loadedData();
@@ -64,25 +68,35 @@ loadedData();
 //CREATING UPGRADES BUTTONS
 
 const shopContainer = document.getElementById("shop-container");
+
 async function createUpgrades() {
   const upgrades = await cookieUpgrades();
-}
-for (let i = 0; i < upgrades.length; i++) {
-  const upgradesButton = document.createElement("button");
-  upgradesButton.textContent = upgrades[i].name;
-  console.log(upgradesButton);
 
-  shopContainer.appendChild(upgradesButton);
+  //my original code...(double check with Manny or Joe)
+  //for (let i = 0; i < upgrades.length; i++) {
 
-  upgradesButton.addEventListener("click", function () {
-    purchaseUpgrades(i);
-    if (clickerData.cookieAmount >= upgrades.cost) {
-      clickerData.cookieAmount -= upgrades.cost;
-      clickerData.cps += upgrades.increase;
-      alert(`Purchased ${upgrades.name}!`);
-    } else {
-      alert("More cookies needed!");
-    }
+  //ChatGPT suggestion *double check understanding*
+
+  upgrades.forEach((upgrades, i) => {
+    //
+    const upgradesButton = document.createElement("button");
+    upgradesButton.textContent = `${upgrades.name} (Cost: ${upgrades.cost}, +${upgrades.increase} CPS)`;
+    console.log(upgradesButton);
+
+    shopContainer.appendChild(upgradesButton);
+
+    //Sam helped with below, not sure I fully understand - ChatGPT corrected, understood the corrections and everything makes sense when i look at it - understand what its doing, but not how it works. *check understanding*
+
+    upgradesButton.addEventListener("click", function () {
+      // purchaseUpgrades(i); // --->   ChaptGPt took out?
+      if (clickerData.cookieAmount >= upgrades.cost) {
+        clickerData.cookieAmount -= upgrades.cost;
+        clickerData.cps += upgrades.increase;
+        alert(`Purchased ${upgrades.name}!`);
+      } else {
+        alert("More cookies needed!");
+      }
+    });
   });
 }
 

@@ -10,13 +10,13 @@ body {
 }
 
 #header {
+  background-image: linear-gradient(black, grey);
   grid-column-start: 1;
   grid-column-end: 6;
   grid-row-start: 1;
   grid-row-end: 2;
   align-content: center;
   text-align: center;
-  background-color: grey;
   font-size: 50px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
@@ -25,21 +25,27 @@ body {
   grid-column-start: 3;
   grid-column-end: 4;
   grid-row-start: 2;
+  align-content: center;
+  margin: 10px;
 }
 
 #shop-container {
-  background-color: purple;
+  background-image: linear-gradient(grey, black);
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 2;
+  margin: 10px, 10px, 10px, 10px;
 }
 
 .right {
+  background-image: linear-gradient(grey, black);
   font-size: 25px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   grid-column-start: 4;
   grid-column-end: 5;
   grid-row-start: 2;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #cookieClicker {
