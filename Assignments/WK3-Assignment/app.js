@@ -6,9 +6,9 @@ const cookieClicker = document.getElementById("cookieClicker");
 let timesClicks = 0;
 
 function handleClick() {
-  timesClicks = +1;
+  timesClicks += 1;
   clickerData.cookieAmount = clickerData.cookieAmount + 1;
-  console.log(clickerData.clickerData);
+  console.log(clickerData.cookieAmount);
 }
 
 cookieClicker.addEventListener("click", handleClick);
@@ -46,30 +46,6 @@ async function cookieUpgrades() {
 }
 cookieUpgrades();
 
-//CREATING UPGRADES BUTTONS
-
-const shopContainer = document.getElementById("shop-container");
-async function createUpgrades() {
-  const upgrades = await cookieUpgrades();
-  for (let i = 0; i < upgrades.length; i++) {
-    const upgradesButton = document.createElement("button");
-    upgradesButton.textContent = upgrades[i].name;
-    console.log(upgradesButton);
-
-    shopContainer.appendChild(upgradesButton);
-
-    upgradesButton.addEventListener("click", function () {
-      purchaseUpgrades(i);
-      if (cookieAmount >= upgrades[upgradeNumber].cost) {
-        cookieAmount -= upgrades[upgradeNumber].cost;
-        cookieAmount += upgrades [upgradesNumber].increase;
-      } else{alert ("More cookies needed!")
-        }
-    });
-  };
-
-createUpgrades();
-
 //RETRIEVING & CALLING DATA
 
 function purchaseUpdgrades(i) {
@@ -84,6 +60,33 @@ function loadedData() {
 }
 
 loadedData();
+
+//CREATING UPGRADES BUTTONS
+
+const shopContainer = document.getElementById("shop-container");
+async function createUpgrades() {
+  const upgrades = await cookieUpgrades();
+}
+for (let i = 0; i < upgrades.length; i++) {
+  const upgradesButton = document.createElement("button");
+  upgradesButton.textContent = upgrades[i].name;
+  console.log(upgradesButton);
+
+  shopContainer.appendChild(upgradesButton);
+
+  upgradesButton.addEventListener("click", function () {
+    purchaseUpgrades(i);
+    if (clickerData.cookieAmount >= upgrades.cost) {
+      clickerData.cookieAmount -= upgrades.cost;
+      clickerData.cps += upgrades.increase;
+      alert(`Purchased ${upgrades.name}!`);
+    } else {
+      alert("More cookies needed!");
+    }
+  });
+}
+
+createUpgrades();
 
 //Game Logic
 //When the user clicks on the cookie, total count of cookies goes up by 1 (event listener - click)
@@ -117,16 +120,3 @@ loadedData();
 //assign value to text content
 //append to DOM
 //should then be able to see upgrades on page
-
-//CREATING NEW ELEMENTS
-// async function getUpgrades() {
-//   const response = await fetch(
-//     "https://cookie-upgrade-api.vercel.app/api/upgrades"
-//   );
-//   const data = await response.json();
-//   console.log(data);
-//filtering the data to the properties that we need --> data wrangling
-//   const wrangledData = data.textContent;
-//   console.log(wrangledData);
-//   return wrangledData;
-// }

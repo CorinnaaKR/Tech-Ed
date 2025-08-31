@@ -1,31 +1,45 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 
+body {
+  background-image: linear-gradient(rgb(5, 101, 5), rgb(3, 37, 110));
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 2fr 1fr 0.5fr;
+  grid-template-rows: 0.2fr 1fr;
+}
+
 #header {
-  font-size: xx-large;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  align-content: center;
+  text-align: center;
+  background-color: grey;
+  font-size: 50px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
 
-body {
-  background-image: linear-gradient(rgb(5, 101, 5), rgb(3, 37, 110));
-  width: 100%;
-  height: 100%;
-}
-
 .main {
-  display: flex;
-  flex-direction: row, center;
-  justify-items: center;
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
 }
 
 #shop-container {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
+  background-color: purple;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
 }
 
 .right {
   font-size: 25px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 2;
 }
 
 #cookieClicker {
