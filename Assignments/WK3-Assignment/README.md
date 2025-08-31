@@ -1,5 +1,3 @@
-Instructions
-
 Requirements
 
 🎯 Fetch upgrade data from the provided API and at least one upgrade from the API update the cookie count. _DONE_
@@ -12,7 +10,7 @@ Requirements
 
 🎯 Use setInterval to increment the cookie count and manage the game state each second. _DONE_
 
-Managing the game state includes saving progress and updating the DOM. _DONE_
+🎯Managing the game state includes saving progress and updating the DOM. _DONE_
 
 Required
 🎯 What requirements did you achieve?
@@ -48,3 +46,5 @@ I've annotated the code with comments where the chapt GPT corrections were and l
 Classmate Joe jumped in discord and gave me a really helpful tutorial on understanding grid, coded along and then used different coloured sections to help when moving everything around the page. Struggling to get the cookie clicker image into the center of the page, going through the code to see if there are any counter-productive selectors hindering the grid sections.
 Upgrade button now back on the pages and showing but it says 'underdefined (cost....ect). Went back through the code looking for spelling errors and found CHATGPT MADE A SPELLING ERROR AND I FOUND IT! MWAHAHAHAHAHAHAHAHAHA #CorinnaWins! I have taken photographic evidence.
 Page is now displaying the correct names!
+Googled around trying to work out how to syle the appended buttons, tried giving them a class but that just made the buttons disappear. Classmate Joe said they can be styled by just styling them as 'buttons' which worked perfectly!
+Played around with making the buttons have a hover effect, then seperated the cookie amount and CPS to make them easier to read.
